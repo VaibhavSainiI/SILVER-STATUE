@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Test - Silver Statue</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div style="padding: 50px; text-align: center;">
+        <h1>Cursor Visibility Test</h1>
+        <p>Move your mouse around to see the custom cursor.</p>
+        
+        <div style="margin: 30px 0;">
+            <button class="btn btn-primary" style="margin: 10px;">Hover Test Button</button>
+            <a href="#" style="margin: 10px; color: var(--primary-gold);">Test Link</a>
+        </div>
+
+        <div class="product-card" style="width: 300px; margin: 20px auto; padding: 20px; background: var(--secondary-black); border-radius: 10px;">
+            <h3>Test Product Card</h3>
+            <p>Hover over this card to test cursor effects</p>
+            <button class="quick-buy-btn btn btn-secondary">Quick Buy Test</button>
+        </div>
+
+        <!-- Test Modal Trigger -->
+        <button onclick="openTestModal()" class="btn btn-primary">Open Test Modal</button>
+
+        <!-- Test Modal -->
+        <div id="testModal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
+            <div class="modal" style="background: var(--secondary-black); padding: 30px; border-radius: 15px; max-width: 500px; margin: 20px; position: relative;">
+                <span class="close" onclick="closeTestModal()" style="position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: var(--primary-gold);">&times;</span>
+                <h2>Test Modal</h2>
+                <p style="margin: 20px 0;">Check if the cursor is visible over this modal.</p>
+                <input type="text" placeholder="Test input field" style="width: 100%; padding: 10px; margin: 10px 0; background: var(--accent-black); border: 1px solid var(--primary-gold); color: white; border-radius: 5px;">
+                <button class="btn btn-primary" onclick="closeTestModal()">Close Modal</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTestModal() {
+            document.getElementById('testModal').style.display = 'flex';
+            // Re-initialize cursor for modal elements
+            if (window.initializeCustomCursor) {
+                setTimeout(() => {
+                    const cursor = document.querySelector('.cursor');
+                    const cursorFollower = document.querySelector('.cursor-follower');
+                    if (cursor && cursorFollower) {
+                        cursor.style.zIndex = '100001';
+                        cursorFollower.style.zIndex = '100000';
+                    }
+                }, 100);
+            }
+        }
+
+        function closeTestModal() {
+            document.getElementById('testModal').style.display = 'none';
+        }
+
+        // Test cursor initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Testing cursor initialization...');
+            
+            // Load main.js functions
+            const script = document.createElement('script');
+            script.src = 'js/main.js';
+            script.onload = function() {
+                console.log('Main.js loaded, initializing cursor...');
+                if (window.initializeCustomCursor) {
+                    try {
+                        initializeCustomCursor();
+                        console.log('Custom cursor initialized successfully');
+                    } catch (error) {
+                        console.error('Cursor initialization failed:', error);
+                        document.body.classList.add('cursor-fallback');
+                    }
+                } else {
+                    console.warn('initializeCustomCursor function not found');
+                    document.body.classList.add('cursor-fallback');
+                }
+            };
+            document.head.appendChild(script);
+        });
+    </script>
+</body>
+</html>

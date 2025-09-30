@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=                <div class="product-card" data-product-id="1">
+                    <div class="product-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="product-overlay">
+                            <button class="quick-view-btn">Quick View</button>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="quick-buy-btn">⚡ Quick Buy</button>
+                        </div>
+                    </div> <title>Silver Statue Emporium - Exquisite Silver Collectibles</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Silver Statue Emporium</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="pages/catalog.html" class="nav-link">Catalog</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a></li>
+                <li class="auth-buttons">
+                    <button class="auth-btn login-btn">Login</button>
+                    <button class="auth-btn register-btn">Register</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="floating-particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Exquisite</span>
+                    <span class="title-line">Silver Statues</span>
+                </h1>
+                <p class="hero-description">Discover our magnificent collection of handcrafted silver statues, each piece a testament to exceptional artistry and timeless elegance.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="window.location.href='pages/catalog.html'">Explore Collection</button>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="statue-showcase">
+                    <div class="statue-item active" data-name="Ganesha Statue">
+                        <div class="statue-card">
+                            <div class="statue-placeholder">
+                                <i class="fas fa-chess-king"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statue-item" data-name="Buddha Statue">
+                        <div class="statue-card">
+                            <div class="statue-placeholder">
+                                <i class="fas fa-praying-hands"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statue-item" data-name="Krishna Statue">
+                        <div class="statue-card">
+                            <div class="statue-placeholder">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="featured" class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Collection</h2>
+                <p class="section-subtitle">Handpicked masterpieces for discerning collectors</p>
+            </div>
+            <div class="featured-grid">
+                <div class="product-card" data-product-id="1">
+                    <div class="product-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-chess-king"></i>
+                        </div>
+                        <div class="product-overlay">
+                            <button class="quick-view-btn">Quick View</button>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lord Ganesha Statue</h3>
+                        <p class="product-description">Exquisite silver statue of Lord Ganesha, handcrafted with intricate details</p>
+                        <div class="product-price">₹15,999</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(128)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="2">
+                    <div class="product-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-praying-hands"></i>
+                        </div>
+                        <div class="product-overlay">
+                            <button class="quick-view-btn">Quick View</button>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="quick-buy-btn">⚡ Quick Buy</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Buddha Meditation Statue</h3>
+                        <p class="product-description">Serene Buddha statue in meditation pose, perfect for spiritual spaces</p>
+                        <div class="product-price">₹12,499</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(95)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="3">
+                    <div class="product-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="product-overlay">
+                            <button class="quick-view-btn">Quick View</button>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="quick-buy-btn">⚡ Quick Buy</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lord Krishna Statue</h3>
+                        <p class="product-description">Beautiful Krishna statue with flute, capturing divine grace and charm</p>
+                        <div class="product-price">₹18,999</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(156)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="4">
+                    <div class="product-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-horse"></i>
+                        </div>
+                        <div class="product-overlay">
+                            <button class="quick-view-btn">Quick View</button>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="quick-buy-btn">⚡ Quick Buy</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Silver Horse Figurine</h3>
+                        <p class="product-description">Majestic silver horse statue symbolizing strength and prosperity</p>
+                        <div class="product-price">₹8,999</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-count">(72)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+                <p class="section-subtitle">Explore our diverse collection of silver masterpieces</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <h3>Religious Statues</h3>
+                    <p>Sacred figures and divine representations</p>
+                    <button class="category-btn" onclick="window.location.href='pages/catalog.html?category=religious'">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chess-king"></i>
+                    </div>
+                    <h3>Royal Collection</h3>
+                    <p>Majestic pieces fit for royalty</p>
+                    <button class="category-btn" onclick="window.location.href='pages/catalog.html?category=royal'">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-horse"></i>
+                    </div>
+                    <h3>Animal Figurines</h3>
+                    <p>Beautiful wildlife and domestic animals</p>
+                    <button class="category-btn" onclick="window.location.href='pages/catalog.html?category=animals'">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Nature & Floral</h3>
+                    <p>Botanical and natural themes</p>
+                    <button class="category-btn" onclick="window.location.href='pages/catalog.html?category=nature'">Explore</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Craftsmanship Excellence</h2>
+                    <p>For over three decades, Silver Statue Emporium has been the premier destination for exquisite silver collectibles. Each piece in our collection is meticulously handcrafted by master artisans who have inherited centuries-old techniques passed down through generations.</p>
+                    <p>Our commitment to quality and authenticity ensures that every statue not only serves as a beautiful decorative piece but also as a valuable investment that appreciates over time.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>30+</h3>
+                            <p>Years of Excellence</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Unique Designs</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10,000+</h3>
+                            <p>Happy Customers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder about-placeholder">
+                        <i class="fas fa-hammer"></i>
+                        <p>Master Artisan at Work</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Silver Street, Artisan Quarter<br>Mumbai, Maharashtra 400001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@silverstatueemporium.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Silver Statue Emporium</h3>
+                    <p>Your trusted partner for exquisite silver collectibles and timeless artistry.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="pages/catalog.html">Catalog</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Religious Statues</a></li>
+                        <li><a href="#">Royal Collection</a></li>
+                        <li><a href="#">Animal Figurines</a></li>
+                        <li><a href="#">Nature & Floral</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Silver Statue Emporium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Shopping Cart</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items">
+                    <p class="empty-cart">Your cart is empty</p>
+                </div>
+                <div class="cart-total">
+                    <h3>Total: ₹<span id="cart-total-amount">0</span></h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="continue-shopping">Continue Shopping</button>
+                <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="auth-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Your Account</h2>
+                <span class="close-modal" onclick="closeModal('login-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div class="auth-links">
+                    <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register here</a></p>
+                    <p><a href="#" onclick="showForgotPassword()">Forgot Password?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="auth-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Account</h2>
+                <span class="close-modal" onclick="closeModal('register-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="register-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="register-firstname">First Name</label>
+                            <input type="text" id="register-firstname" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-lastname">Last Name</label>
+                            <input type="text" id="register-lastname" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone">Phone (Optional)</label>
+                        <input type="tel" id="register-phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" name="password" required>
+                        <small>At least 6 characters with 1 uppercase, 1 lowercase, and 1 number</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" name="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                <div class="auth-links">
+                    <p>Already have an account? <a href="#" onclick="switchToLogin()">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Buy Modal -->
+    <div id="quick-buy-modal" class="auth-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚡ Quick Buy</h2>
+                <span class="close-modal" onclick="closeQuickBuyModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="quick-buy-content">
+                    <div class="product-summary">
+                        <div class="product-image-small">
+                            <img id="quick-buy-image" src="" alt="" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                        <div class="product-details-small">
+                            <h4 id="quick-buy-name">Product Name</h4>
+                            <p id="quick-buy-price" style="color: var(--primary-gold); font-size: 1.2rem; font-weight: bold;">₹0</p>
+                            <div class="quantity-selector">
+                                <label for="quick-buy-quantity">Quantity:</label>
+                                <div class="quantity-controls">
+                                    <button type="button" onclick="adjustQuantity(-1)">-</button>
+                                    <input type="number" id="quick-buy-quantity" value="1" min="1" max="10">
+                                    <button type="button" onclick="adjustQuantity(1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="quick-buy-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quick-buy-name-input">Full Name</label>
+                                <input type="text" id="quick-buy-name-input" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quick-buy-phone">Phone Number</label>
+                                <input type="tel" id="quick-buy-phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quick-buy-email">Email Address</label>
+                            <input type="email" id="quick-buy-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quick-buy-address">Delivery Address</label>
+                            <textarea id="quick-buy-address" name="address" rows="3" placeholder="Enter your complete delivery address" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quick-buy-city">City</label>
+                                <input type="text" id="quick-buy-city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quick-buy-pincode">PIN Code</label>
+                                <input type="text" id="quick-buy-pincode" name="pincode" pattern="[0-9]{6}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="order-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="quick-buy-subtotal">₹0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="quick-buy-shipping">₹199</span>
+                            </div>
+                            <div class="summary-row total-row">
+                                <span><strong>Total:</strong></span>
+                                <span id="quick-buy-total"><strong>₹0</strong></span>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-options">
+                            <h4>Payment Method</h4>
+                            <div class="payment-method">
+                                <input type="radio" id="payment-cod" name="paymentMethod" value="cod" checked>
+                                <label for="payment-cod">💰 Cash on Delivery</label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="payment-online" name="paymentMethod" value="online">
+                                <label for="payment-online">💳 Pay Online (Card/UPI)</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                            <i class="fas fa-bolt"></i> Place Order Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/pdf_products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/quick-buy.js"></script>
+</body>
+</html>

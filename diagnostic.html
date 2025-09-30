@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Buy Diagnostic</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .diagnostic-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--secondary-black);
+            border-radius: 20px;
+            border: 2px solid var(--primary-gold);
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--accent-black);
+            border-radius: 15px;
+        }
+        .test-product {
+            display: grid;
+            grid-template-columns: 200px 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            background: var(--secondary-black);
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .product-info h4 {
+            color: var(--primary-gold);
+            margin: 0 0 0.5rem 0;
+        }
+        .buttons-test {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin: 0.5rem 0;
+        }
+        .status.success { background: #1a5a1a; color: #90EE90; }
+        .status.error { background: #5a1a1a; color: #ffcccc; }
+        .status.warning { background: #5a5a1a; color: #ffff99; }
+        .diagnostic-log {
+            background: #111;
+            color: #0f0;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagnostic-container">
+        <h1 style="color: var(--primary-gold); text-align: center;">🔧 Quick Buy Diagnostic Tool</h1>
+        
+        <div class="test-section">
+            <h2>📋 System Status</h2>
+            <div id="system-status">
+                <div class="status" id="products-status">Checking products...</div>
+                <div class="status" id="modal-status">Checking modal...</div>
+                <div class="status" id="scripts-status">Checking scripts...</div>
+                <div class="status" id="functions-status">Checking functions...</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>🧪 Test Products</h2>
+            <div id="test-products">
+                <!-- Test products will be added here -->
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>📊 Console Log</h2>
+            <div class="diagnostic-log" id="console-log">
+                Console messages will appear here...
+            </div>
+            <button onclick="clearLog()" class="btn btn-secondary">Clear Log</button>
+            <button onclick="runDiagnostics()" class="btn btn-primary">Run Diagnostics</button>
+        </div>
+    </div>
+
+    <!-- Include Quick Buy Modal -->
+    <div id="quick-buy-modal" class="auth-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚡ Quick Buy</h2>
+                <span class="close-modal" onclick="closeQuickBuyModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="quick-buy-content">
+                    <div class="product-summary">
+                        <div class="product-image-small">
+                            <img id="quick-buy-image" src="" alt="" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                        <div class="product-details-small">
+                            <h4 id="quick-buy-name">Product Name</h4>
+                            <p id="quick-buy-price" style="color: var(--primary-gold); font-size: 1.2rem; font-weight: bold;">₹0</p>
+                            <div class="quantity-selector">
+                                <label for="quick-buy-quantity">Quantity:</label>
+                                <div class="quantity-controls">
+                                    <button type="button" onclick="adjustQuantity(-1)">-</button>
+                                    <input type="number" id="quick-buy-quantity" value="1" min="1" max="10">
+                                    <button type="button" onclick="adjustQuantity(1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="quick-buy-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quick-buy-name-input">Full Name</label>
+                                <input type="text" id="quick-buy-name-input" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quick-buy-phone">Phone Number</label>
+                                <input type="tel" id="quick-buy-phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quick-buy-email">Email Address</label>
+                            <input type="email" id="quick-buy-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quick-buy-address">Delivery Address</label>
+                            <textarea id="quick-buy-address" name="address" rows="3" placeholder="Enter your complete delivery address" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quick-buy-city">City</label>
+                                <input type="text" id="quick-buy-city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quick-buy-pincode">PIN Code</label>
+                                <input type="text" id="quick-buy-pincode" name="pincode" pattern="[0-9]{6}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="order-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="quick-buy-subtotal">₹0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="quick-buy-shipping">₹199</span>
+                            </div>
+                            <div class="summary-row total-row">
+                                <span><strong>Total:</strong></span>
+                                <span id="quick-buy-total"><strong>₹0</strong></span>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-options">
+                            <h4>Payment Method</h4>
+                            <div class="payment-method">
+                                <input type="radio" id="payment-cod" name="paymentMethod" value="cod" checked>
+                                <label for="payment-cod">💰 Cash on Delivery</label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="payment-online" name="paymentMethod" value="online">
+                                <label for="payment-online">💳 Pay Online (Card/UPI)</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                            <i class="fas fa-bolt"></i> Place Order Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/pdf_products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/quick-buy.js"></script>
+
+    <script>
+        // Console logging override
+        const originalLog = console.log;
+        const originalError = console.error;
+        const logContainer = document.getElementById('console-log');
+
+        function addToLog(message, type = 'log') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.style.color = type === 'error' ? '#ff6666' : '#00ff00';
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToLog(args.join(' '), 'log');
+        };
+
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToLog('ERROR: ' + args.join(' '), 'error');
+        };
+
+        function clearLog() {
+            logContainer.innerHTML = 'Console cleared...';
+        }
+
+        function setStatus(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `status ${type}`;
+        }
+
+        function runDiagnostics() {
+            console.log('🔧 Running Quick Buy diagnostics...');
+            
+            // Check products
+            if (typeof products !== 'undefined' && products.length > 0) {
+                setStatus('products-status', `✅ Products loaded (${products.length} items)`, 'success');
+                console.log('Products array found with', products.length, 'items');
+            } else {
+                setStatus('products-status', '❌ Products not loaded', 'error');
+                console.error('Products array not found or empty');
+            }
+
+            // Check modal
+            const modal = document.getElementById('quick-buy-modal');
+            if (modal) {
+                setStatus('modal-status', '✅ Quick Buy modal found', 'success');
+                console.log('Quick Buy modal element found');
+            } else {
+                setStatus('modal-status', '❌ Quick Buy modal not found', 'error');
+                console.error('Quick Buy modal not found in DOM');
+            }
+
+            // Check scripts
+            const requiredFunctions = ['showQuickBuyModal', 'closeQuickBuyModal', 'adjustQuantity', 'updateQuickBuyTotals'];
+            let functionsFound = 0;
+            
+            requiredFunctions.forEach(func => {
+                if (typeof window[func] === 'function') {
+                    functionsFound++;
+                    console.log(`✅ Function ${func} found`);
+                } else {
+                    console.error(`❌ Function ${func} not found`);
+                }
+            });
+
+            if (functionsFound === requiredFunctions.length) {
+                setStatus('functions-status', `✅ All functions loaded (${functionsFound}/${requiredFunctions.length})`, 'success');
+            } else {
+                setStatus('functions-status', `⚠️ Some functions missing (${functionsFound}/${requiredFunctions.length})`, 'warning');
+            }
+
+            // Check overall status
+            const scripts = ['api.js', 'pdf_products.js', 'main.js', 'quick-buy.js'];
+            setStatus('scripts-status', `📜 Scripts loading... Check console for details`, 'warning');
+            
+            console.log('🎯 Diagnostic complete');
+        }
+
+        function createTestProduct(id, name, price) {
+            return `
+                <div class="test-product">
+                    <div class="product-image" style="background: linear-gradient(135deg, var(--accent-black), var(--secondary-black)); border-radius: 10px; display: flex; align-items: center; justify-content: center; height: 120px; color: var(--primary-gold); font-size: 2rem;">
+                        👑
+                    </div>
+                    <div class="product-info">
+                        <h4>${name}</h4>
+                        <p>Price: ₹${price.toLocaleString()}</p>
+                        <p>Product ID: ${id}</p>
+                    </div>
+                    <div class="buttons-test">
+                        <button class="quick-buy-btn btn btn-primary" data-product-id="${id}" onclick="testQuickBuy(${id})">
+                            ⚡ Test Quick Buy
+                        </button>
+                        <button class="btn btn-secondary" onclick="testDirectCall(${id})">
+                            🔧 Direct Call
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function testQuickBuy(productId) {
+            console.log('🧪 Testing Quick Buy for product:', productId);
+            // This will be handled by the event listener in quick-buy.js
+        }
+
+        function testDirectCall(productId) {
+            console.log('🔧 Testing direct function call for product:', productId);
+            if (typeof showQuickBuyModal === 'function') {
+                showQuickBuyModal(productId);
+            } else {
+                console.error('showQuickBuyModal function not available');
+                alert('showQuickBuyModal function not found!');
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Diagnostic page loaded');
+            
+            // Wait for other scripts to load
+            setTimeout(() => {
+                runDiagnostics();
+                
+                // Create test products
+                const testProductsContainer = document.getElementById('test-products');
+                const testProducts = [
+                    { id: 1, name: 'Test Ganesha Statue', price: 15999 },
+                    { id: 2, name: 'Test Buddha Statue', price: 8499 },
+                    { id: 3, name: 'Test Shiva Statue', price: 12999 }
+                ];
+                
+                testProductsContainer.innerHTML = testProducts.map(p => 
+                    createTestProduct(p.id, p.name, p.price)
+                ).join('');
+                
+                console.log('✅ Test products created');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog - Silver Statue Emporium</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/catalog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="../index.html" style="text-decoration: none; color: inherit;">Silver Statue Emporium</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link active">Catalog</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Catalog Header -->
+    <section class="catalog-header">
+        <div class="container">
+            <div class="catalog-title">
+                <h1>Our Exquisite Collection</h1>
+                <p>Discover handcrafted silver masterpieces that embody elegance and tradition</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="catalog-filters">
+        <div class="container">
+            <div class="filters-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                    <i class="fas fa-search"></i>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Category:</label>
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="religious">Religious Statues</option>
+                        <option value="royal">Royal Collection</option>
+                        <option value="animals">Animal Figurines</option>
+                        <option value="nature">Nature & Floral</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Price Range:</label>
+                    <select id="price-filter">
+                        <option value="all">All Prices</option>
+                        <option value="0-10000">Under ₹10,000</option>
+                        <option value="10000-20000">₹10,000 - ₹20,000</option>
+                        <option value="20000-50000">₹20,000 - ₹50,000</option>
+                        <option value="50000+">Above ₹50,000</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Sort By:</label>
+                    <select id="sort-filter">
+                        <option value="name">Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Rating</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+                
+                <div class="view-toggle">
+                    <button id="grid-view" class="view-btn active"><i class="fas fa-th"></i></button>
+                    <button id="list-view" class="view-btn"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="catalog-products">
+        <div class="container">
+            <div class="products-header">
+                <div class="results-count">
+                    <span id="results-count">Showing all products</span>
+                </div>
+                <div class="products-per-page">
+                    <label>Show:</label>
+                    <select id="per-page">
+                        <option value="12">12 per page</option>
+                        <option value="24">24 per page</option>
+                        <option value="48">48 per page</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="products-grid" class="products-grid grid-view">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+            
+            <div class="pagination">
+                <button id="prev-page" class="page-btn" disabled>Previous</button>
+                <div id="page-numbers" class="page-numbers"></div>
+                <button id="next-page" class="page-btn">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Shopping Cart</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items">
+                    <p class="empty-cart">Your cart is empty</p>
+                </div>
+                <div class="cart-total">
+                    <h3>Total: ₹<span id="cart-total-amount">0</span></h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="continue-shopping">Continue Shopping</button>
+                <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Buy Modal -->
+    <div id="quick-buy-modal" class="auth-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚡ Quick Buy</h2>
+                <span class="close-modal" onclick="closeQuickBuyModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="quick-buy-content">
+                    <div class="product-summary">
+                        <div class="product-image-small">
+                            <img id="quick-buy-image" src="" alt="" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                        <div class="product-details-small">
+                            <h4 id="quick-buy-name">Product Name</h4>
+                            <p id="quick-buy-price" style="color: var(--primary-gold); font-size: 1.2rem; font-weight: bold;">₹0</p>
+                            <div class="quantity-selector">
+                                <label for="quick-buy-quantity">Quantity:</label>
+                                <div class="quantity-controls">
+                                    <button type="button" onclick="adjustQuantity(-1)">-</button>
+                                    <input type="number" id="quick-buy-quantity" value="1" min="1" max="10">
+                                    <button type="button" onclick="adjustQuantity(1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="quick-buy-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quick-buy-name-input">Full Name</label>
+                                <input type="text" id="quick-buy-name-input" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quick-buy-phone">Phone Number</label>
+                                <input type="tel" id="quick-buy-phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quick-buy-email">Email Address</label>
+                            <input type="email" id="quick-buy-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quick-buy-address">Delivery Address</label>
+                            <textarea id="quick-buy-address" name="address" rows="3" placeholder="Enter your complete delivery address" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quick-buy-city">City</label>
+                                <input type="text" id="quick-buy-city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quick-buy-pincode">PIN Code</label>
+                                <input type="text" id="quick-buy-pincode" name="pincode" pattern="[0-9]{6}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="order-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="quick-buy-subtotal">₹0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="quick-buy-shipping">₹199</span>
+                            </div>
+                            <div class="summary-row total-row">
+                                <span><strong>Total:</strong></span>
+                                <span id="quick-buy-total"><strong>₹0</strong></span>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-options">
+                            <h4>Payment Method</h4>
+                            <div class="payment-method">
+                                <input type="radio" id="payment-cod" name="paymentMethod" value="cod" checked>
+                                <label for="payment-cod">💰 Cash on Delivery</label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="payment-online" name="paymentMethod" value="online">
+                                <label for="payment-online">💳 Pay Online (Card/UPI)</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                            <i class="fas fa-bolt"></i> Place Order Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/pdf_products.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/catalog.js"></script>
+    <script src="../js/quick-buy.js"></script>
+</body>
+</html>

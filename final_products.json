@@ -1,0 +1,338 @@
+[
+  {
+    "id": 1,
+    "name": "Vigneshwara Lord Ganesha Silver Statue",
+    "price": 4599,
+    "description": "Exquisite vigneshwara lord ganesha silver statue crafted with precision and attention to detail. This beautiful piece weighs approximately 575g and features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "religious",
+    "rating": 5,
+    "reviews": 27,
+    "images": [
+      "product_1_1.png",
+      "product_1_2.png",
+      "product_1_3.png"
+    ],
+    "inStock": true,
+    "weight": "575g",
+    "dimensions": "20cm x 21cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": "new",
+    "dateAdded": "2024-02-02",
+    "specifications": "20cm 9cm 26cm 19cm 37cm 32cm 11cm 20cm 32cm 24cm 10cm 10cm 16cm 4cm 32cm 4cm 34cm 17cm 17cm 20cm"
+  },
+  {
+    "id": 2,
+    "name": "Big Tortoise Silver Statue",
+    "price": 2999,
+    "description": "Exquisite big tortoise silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 4,
+    "reviews": 34,
+    "images": [
+      "product_6_1.png",
+      "product_6_2.png",
+      "product_7_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": "new",
+    "dateAdded": "2024-03-03",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 3,
+    "name": "Swan Silver Statue",
+    "price": 2999,
+    "description": "Exquisite swan silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 5,
+    "reviews": 41,
+    "images": [
+      "product_8_1.png",
+      "product_8_2.png",
+      "product_9_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": "new",
+    "dateAdded": "2024-04-04",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 4,
+    "name": "Royal Elephant Pair Silver Statue",
+    "price": 2999,
+    "description": "Exquisite royal elephant pair silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 4,
+    "reviews": 48,
+    "images": [
+      "product_10_1.png",
+      "product_10_2.png",
+      "product_11_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": "new",
+    "dateAdded": "2024-05-05",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 5,
+    "name": "Tortoise Tree  Silver Statue",
+    "price": 2999,
+    "description": "Exquisite tortoise tree  silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 5,
+    "reviews": 55,
+    "images": [
+      "product_14_1.png",
+      "product_14_2.png",
+      "product_15_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": "new",
+    "dateAdded": "2024-06-06",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 6,
+    "name": "Unreined conﬁdence Horse Pair Silver Statue",
+    "price": 2999,
+    "description": "Exquisite unreined conﬁdence horse pair silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 4,
+    "reviews": 62,
+    "images": [
+      "product_16_1.png",
+      "product_16_2.png",
+      "product_17_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": "bestseller",
+    "dateAdded": "2024-07-07",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 7,
+    "name": "Beautiful Swan Couple Silver Statue",
+    "price": 2999,
+    "description": "Exquisite beautiful swan couple silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 5,
+    "reviews": 69,
+    "images": [
+      "product_18_1.png",
+      "product_18_2.png",
+      "product_19_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": null,
+    "dateAdded": "2024-08-08",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 8,
+    "name": "Heritage Elephant Pair Silver Statue",
+    "price": 2999,
+    "description": "Exquisite heritage elephant pair silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 4,
+    "reviews": 76,
+    "images": [
+      "product_22_1.png",
+      "product_22_2.png",
+      "product_23_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": null,
+    "dateAdded": "2024-09-09",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 9,
+    "name": "Antic Single Single Horse Silver Statue",
+    "price": 2999,
+    "description": "Exquisite antic single single horse silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 5,
+    "reviews": 83,
+    "images": [
+      "product_24_1.png",
+      "product_24_2.png",
+      "product_25_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": "bestseller",
+    "dateAdded": "2024-10-10",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 10,
+    "name": "Small Tortoise Silver Statue",
+    "price": 2999,
+    "description": "Exquisite small tortoise silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 4,
+    "reviews": 90,
+    "images": [
+      "product_26_1.png",
+      "product_26_2.png",
+      "product_27_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": null,
+    "dateAdded": "2024-11-11",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 11,
+    "name": "Ship of the Desert, Camel Silver Statue",
+    "price": 2999,
+    "description": "Exquisite ship of the desert, camel silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 5,
+    "reviews": 97,
+    "images": [
+      "product_28_1.png",
+      "product_28_2.png",
+      "product_29_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": null,
+    "dateAdded": "2024-12-12",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 12,
+    "name": "Italian Mushrooms Silver Statue",
+    "price": 2499,
+    "description": "Exquisite italian mushrooms silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "nature",
+    "rating": 4,
+    "reviews": 24,
+    "images": [
+      "product_30_1.png",
+      "product_31_1.png",
+      "product_31_2.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": "bestseller",
+    "dateAdded": "2024-01-13",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 13,
+    "name": "Gaja Silver Statue",
+    "price": 2999,
+    "description": "Exquisite gaja silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 5,
+    "reviews": 31,
+    "images": [
+      "product_32_1.png",
+      "product_33_1.png",
+      "product_33_2.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": null,
+    "dateAdded": "2024-02-14",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 14,
+    "name": "House Sparrows Silver Statue",
+    "price": 2999,
+    "description": "Exquisite house sparrows silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 4,
+    "reviews": 38,
+    "images": [
+      "product_34_1.png",
+      "product_35_1.png",
+      "product_35_2.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": null,
+    "dateAdded": "2024-03-15",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 15,
+    "name": "Cow Mother Silver Statue",
+    "price": 2999,
+    "description": "Exquisite cow mother silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 5,
+    "reviews": 45,
+    "images": [
+      "product_36_1.png",
+      "product_36_2.png",
+      "product_37_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": "bestseller",
+    "dateAdded": "2024-04-16",
+    "specifications": "Oxidized finish for antique look"
+  },
+  {
+    "id": 16,
+    "name": "Beautiful Swan Female with Daughter Silver Statue",
+    "price": 2999,
+    "description": "Exquisite beautiful swan female with daughter silver statue crafted with precision and attention to detail. features 999 silver plating with an oxidized antique finish for a luxurious appearance.",
+    "category": "animals",
+    "rating": 4,
+    "reviews": 52,
+    "images": [
+      "product_38_1.png",
+      "product_38_2.png",
+      "product_39_1.png"
+    ],
+    "inStock": true,
+    "weight": "500g",
+    "dimensions": "15cm x 12cm",
+    "material": "Resin with 999 Silver Plating",
+    "badge": null,
+    "dateAdded": "2024-05-17",
+    "specifications": "Oxidized finish for antique look"
+  }
+]

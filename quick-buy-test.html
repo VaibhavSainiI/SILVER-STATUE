@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Quick Buy Feature Test</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #1a1a1a; 
+            color: #fff; 
+            line-height: 1.6;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #C9B037;
+        }
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: #333;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #C9B037;
+        }
+        .quick-buy-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+        .quick-buy-btn:hover {
+            background: linear-gradient(135deg, #ee5a24, #ff6b6b);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        .demo-product {
+            background: #2a2a2a;
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #444;
+        }
+        .product-image {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #444, #222);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #C9B037;
+            margin-bottom: 1rem;
+        }
+        .benefits {
+            background: #1a3c1a;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .benefits ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        .benefits li {
+            margin: 0.5rem 0;
+            color: #90EE90;
+        }
+        h1, h2, h3 { color: #C9B037; }
+        .highlight { color: #ff6b6b; font-weight: bold; }
+        .note {
+            background: #333;
+            padding: 1rem;
+            border-left: 4px solid #C9B037;
+            margin: 1rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>⚡ Quick Buy Feature Showcase</h1>
+        <p>Experience the lightning-fast checkout process with our new Quick Buy feature!</p>
+        
+        <div class="note">
+            <strong>📋 How to Test:</strong> Click any "⚡ Quick Buy" button below to experience the streamlined checkout process.
+        </div>
+
+        <div class="feature-showcase">
+            <div class="feature-card">
+                <h3>🏆 Sample Product 1</h3>
+                <div class="demo-product">
+                    <div class="product-image">👑</div>
+                    <h4>Royal Ganesha Silver Statue</h4>
+                    <p><strong>₹15,999</strong></p>
+                    <p>Exquisite handcrafted silver statue with intricate details.</p>
+                    <button class="quick-buy-btn" onclick="testQuickBuy(1)">
+                        ⚡ Quick Buy
+                    </button>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎯 Sample Product 2</h3>
+                <div class="demo-product">
+                    <div class="product-image">🙏</div>
+                    <h4>Buddha Meditation Statue</h4>
+                    <p><strong>₹8,499</strong></p>
+                    <p>Serene Buddha statue perfect for meditation spaces.</p>
+                    <button class="quick-buy-btn" onclick="testQuickBuy(2)">
+                        ⚡ Quick Buy
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="benefits">
+            <h3>✨ Quick Buy Benefits:</h3>
+            <ul>
+                <li><span class="highlight">🚀 One-Click Purchase:</span> Skip the cart, buy instantly</li>
+                <li><span class="highlight">📱 Smart Form:</span> Auto-fills user data if logged in</li>
+                <li><span class="highlight">💰 Multiple Payment Options:</span> Cash on Delivery or Online Payment</li>
+                <li><span class="highlight">🧮 Auto Calculations:</span> Real-time pricing with shipping</li>
+                <li><span class="highlight">📦 Free Shipping:</span> On orders above ₹5,000</li>
+                <li><span class="highlight">⚡ Instant Confirmation:</span> Immediate order processing</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h3>🛠️ Feature Details:</h3>
+            <ul>
+                <li><strong>Frontend:</strong> Responsive modal with quantity selector</li>
+                <li><strong>Backend:</strong> Dedicated API endpoint for quick orders</li>
+                <li><strong>Validation:</strong> Server-side price verification</li>
+                <li><strong>Stock Management:</strong> Real-time inventory updates</li>
+                <li><strong>User Experience:</strong> Streamlined 30-second checkout</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <strong>🔗 Navigation:</strong>
+            <a href="/" style="color: #C9B037; text-decoration: none;">← Back to Main Website</a> | 
+            <a href="/pages/catalog.html" style="color: #C9B037; text-decoration: none;">View Full Catalog →</a>
+        </div>
+    </div>
+
+    <script>
+        // Mock product data for testing
+        const testProducts = {
+            1: {
+                id: 1,
+                name: "Royal Ganesha Silver Statue",
+                price: 15999,
+                images: ["product_1_1.png"],
+                weight: "2.5kg",
+                dimensions: "20cm x 15cm",
+                material: "925 Sterling Silver",
+                description: "Exquisite handcrafted Royal Ganesha statue made from premium 925 sterling silver. Features intricate details and traditional craftsmanship.",
+                rating: 5,
+                reviews: 128
+            },
+            2: {
+                id: 2,
+                name: "Buddha Meditation Statue",
+                price: 8499,
+                images: ["product_2_1.png"],
+                weight: "1.8kg",
+                dimensions: "18cm x 12cm",
+                material: "Silver Plated Bronze",
+                description: "Serene Buddha statue in meditation pose, perfect for creating peaceful meditation spaces and spiritual environments.",
+                rating: 5,
+                reviews: 95
+            }
+        };
+
+        // Mock global variables that the quick-buy script expects
+        window.products = Object.values(testProducts);
+        window.isLoggedIn = false;
+        window.userData = null;
+        window.isBackendConnected = true;
+
+        // Mock API service
+        window.apiService = {
+            post: async (endpoint, data) => {
+                console.log('Mock API Call:', endpoint, data);
+                // Simulate API response
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        resolve({
+                            success: true,
+                            orderId: 'QB' + Date.now(),
+                            orderTotal: data.total,
+                            paymentMethod: data.paymentMethod,
+                            estimatedDelivery: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+                        });
+                    }, 1000);
+                });
+            }
+        };
+
+        // Mock notification system
+        window.showNotification = (message, type) => {
+            console.log(`${type.toUpperCase()}: ${message}`);
+            alert(`${type.toUpperCase()}: ${message}`);
+        };
+
+        // Mock loading system
+        window.showLoading = () => console.log('Loading...');
+        window.hideLoading = () => console.log('Loading complete');
+
+        function testQuickBuy(productId) {
+            console.log('Testing Quick Buy for product:', productId);
+            if (window.showQuickBuyModal) {
+                window.showQuickBuyModal(productId);
+            } else {
+                alert('Quick Buy functionality will be available once the quick-buy.js script loads!');
+            }
+        }
+
+        // Load the actual quick-buy script
+        const script = document.createElement('script');
+        script.src = '/js/quick-buy.js';
+        script.onload = () => {
+            console.log('✅ Quick Buy functionality loaded and ready!');
+        };
+        script.onerror = () => {
+            console.log('❌ Failed to load Quick Buy script');
+            alert('Unable to load Quick Buy functionality. Please check if the server is running.');
+        };
+        document.head.appendChild(script);
+
+        console.log('🧪 Quick Buy Test Page Loaded');
+        console.log('📦 Test products available:', Object.keys(testProducts));
+    </script>
+</body>
+</html>

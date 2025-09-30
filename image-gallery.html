@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracted Images Gallery - Silver Statue Catalogue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .image-item {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .image-item:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+        }
+        .image-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+        .image-info {
+            padding: 10px;
+            text-align: center;
+        }
+        .image-name {
+            font-size: 12px;
+            color: #d4af37;
+            margin-bottom: 5px;
+        }
+        .page-info {
+            font-size: 10px;
+            color: #666;
+        }
+        .loading {
+            text-align: center;
+            color: #d4af37;
+            font-size: 18px;
+            margin: 50px 0;
+        }
+        .error-message {
+            background: #2a1a1a;
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        .back-link {
+            display: inline-block;
+            background: #d4af37;
+            color: #0a0a0a;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .back-link:hover {
+            background: #f4d03f;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../index.html" class="back-link">← Back to Website</a>
+        <h1>Extracted Product Images</h1>
+        <p>Images extracted from Silver Statue Catalogue PDF</p>
+    </div>
+    
+    <div id="loading" class="loading">Loading images...</div>
+    <div id="gallery" class="gallery"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadImageGallery();
+        });
+        
+        async function loadImageGallery() {
+            const loadingDiv = document.getElementById('loading');
+            const galleryDiv = document.getElementById('gallery');
+            
+            try {
+                // Create image list based on what we know was extracted
+                const imageList = [];
+                
+                // Generate list of possible images (based on our extraction)
+                for (let page = 1; page <= 40; page++) {
+                    for (let img = 1; img <= 14; img++) {
+                        imageList.push(`product_${page}_${img}.png`);
+                    }
+                }
+                
+                loadingDiv.textContent = `Checking ${imageList.length} possible images...`;
+                
+                const existingImages = [];
+                let checkedCount = 0;
+                
+                // Check which images actually exist
+                const checkPromises = imageList.map(async (imageName) => {
+                    try {
+                        const response = await fetch(`images/${imageName}`, { method: 'HEAD' });
+                        checkedCount++;
+                        
+                        if (checkedCount % 50 === 0) {
+                            loadingDiv.textContent = `Checked ${checkedCount}/${imageList.length} images...`;
+                        }
+                        
+                        if (response.ok) {
+                            const [, page, imgNum] = imageName.match(/product_(\\d+)_(\\d+)\\.png/);
+                            existingImages.push({
+                                name: imageName,
+                                page: parseInt(page),
+                                imageNum: parseInt(imgNum),
+                                path: `images/${imageName}`
+                            });
+                        }
+                    } catch (error) {
+                        // Image doesn't exist, skip it
+                    }
+                });
+                
+                await Promise.all(checkPromises);
+                
+                loadingDiv.style.display = 'none';
+                
+                if (existingImages.length === 0) {
+                    galleryDiv.innerHTML = `
+                        <div class="error-message">
+                            <h3>No images found</h3>
+                            <p>The extracted images might not be in the expected location.</p>
+                            <p>Expected location: images/ folder</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Sort by page and image number
+                existingImages.sort((a, b) => {
+                    if (a.page !== b.page) return a.page - b.page;
+                    return a.imageNum - b.imageNum;
+                });
+                
+                // Create gallery
+                galleryDiv.innerHTML = existingImages.map(img => `
+                    <div class="image-item">
+                        <img src="${img.path}" alt="Page ${img.page}, Image ${img.imageNum}" 
+                             onerror="this.parentElement.style.display='none'">
+                        <div class="image-info">
+                            <div class="image-name">${img.name}</div>
+                            <div class="page-info">Page ${img.page}, Image ${img.imageNum}</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Update header
+                document.querySelector('.header p').textContent = 
+                    `${existingImages.length} images extracted from Silver Statue Catalogue PDF`;
+                
+            } catch (error) {
+                loadingDiv.style.display = 'none';
+                galleryDiv.innerHTML = `
+                    <div class="error-message">
+                        <h3>Error loading gallery</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

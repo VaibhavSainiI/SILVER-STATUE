@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Cross Button Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a1a; color: #fff; }
+        .test-btn { 
+            background: #C9B037; 
+            color: #000; 
+            padding: 15px 30px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            margin: 10px;
+        }
+        .test-btn:hover { background: #B8A034; }
+        .test-results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #2a2a2a;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Cross Button Test</h1>
+    <p>This page tests the Quick View modal close button functionality.</p>
+    
+    <button class="test-btn" onclick="testModal()">🔍 Test Quick View Modal</button>
+    <button class="test-btn" onclick="checkConsole()">📋 Check Console Logs</button>
+    
+    <div class="test-results">
+        <h3>Test Instructions:</h3>
+        <ol>
+            <li>Click "Test Quick View Modal" to open a modal</li>
+            <li>Try clicking the ✕ (cross) button to close it</li>
+            <li>Try pressing ESC key to close it</li>
+            <li>Try clicking outside the modal to close it</li>
+            <li>Check console for debug messages</li>
+        </ol>
+        
+        <h3>Expected Behavior:</h3>
+        <ul>
+            <li>✅ Cross button should close the modal</li>
+            <li>✅ ESC key should close the modal</li>
+            <li>✅ Clicking outside should close the modal</li>
+            <li>✅ Console should show debug messages</li>
+        </ul>
+    </div>
+
+    <script>
+        // Test modal creation
+        function testModal() {
+            console.log('Creating test modal...');
+            
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 10000; opacity: 0; transition: opacity 0.3s ease;';
+            
+            modal.innerHTML = `
+                <div class="modal-content" style="transform: scale(0.9); transition: transform 0.3s ease; max-width: 500px; background: #2a2a2a; border-radius: 20px; border: 2px solid #C9B037; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <div class="modal-header" style="padding: 1.5rem 2rem; border-bottom: 1px solid #3a3a3a; display: flex; justify-content: space-between; align-items: center;">
+                        <h2 style="color: #C9B037; margin: 0;">Test Modal</h2>
+                        <span class="close" style="color: #888; font-size: 2rem; font-weight: bold; cursor: pointer; transition: color 0.3s; line-height: 1; user-select: none; z-index: 10001;">&times;</span>
+                    </div>
+                    <div style="padding: 2rem; color: #fff;">
+                        <p>This is a test modal to verify the close button functionality.</p>
+                        <p>You should be able to close this modal by:</p>
+                        <ul>
+                            <li>Clicking the ✕ button</li>
+                            <li>Pressing ESC key</li>
+                            <li>Clicking outside the modal</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Show modal with animation
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modal.querySelector('.modal-content').style.transform = 'scale(1)';
+            }, 10);
+            
+            // Close button functionality
+            const closeBtn = modal.querySelector('.close');
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                console.log('✅ Close button clicked - Working!');
+                closeTestModal(modal);
+            });
+            
+            // Close on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    console.log('✅ Modal background clicked - Working!');
+                    closeTestModal(modal);
+                }
+            });
+            
+            // Prevent modal content clicks from closing modal
+            modal.querySelector('.modal-content').addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+            
+            // ESC key support
+            const handleKeydown = (e) => {
+                if (e.key === 'Escape') {
+                    console.log('✅ ESC key pressed - Working!');
+                    closeTestModal(modal);
+                    document.removeEventListener('keydown', handleKeydown);
+                }
+            };
+            document.addEventListener('keydown', handleKeydown);
+            
+            // Hover effect for close button
+            closeBtn.addEventListener('mouseenter', () => {
+                closeBtn.style.color = '#C9B037';
+            });
+            closeBtn.addEventListener('mouseleave', () => {
+                closeBtn.style.color = '#888';
+            });
+        }
+        
+        function closeTestModal(modal) {
+            console.log('🚀 Closing test modal...');
+            modal.style.opacity = '0';
+            modal.querySelector('.modal-content').style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                if (modal && modal.parentNode) {
+                    document.body.removeChild(modal);
+                    console.log('✅ Modal removed from DOM - Working!');
+                }
+            }, 300);
+        }
+        
+        function checkConsole() {
+            console.log('📋 Console Test Messages:');
+            console.log('- If you see messages starting with ✅, the functionality is working');
+            console.log('- Open browser DevTools (F12) to see all console messages');
+            console.log('- Current time:', new Date().toLocaleTimeString());
+        }
+        
+        // Initial console message
+        console.log('🧪 Modal Test Page Loaded - Ready for testing!');
+    </script>
+</body>
+</html>

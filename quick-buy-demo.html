@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Quick Buy Demo - Silver Statue Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .demo-header {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .demo-title {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+        .demo-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .feature-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .highlight-card {
+            background: var(--secondary-black);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--accent-black);
+            text-align: center;
+            transition: transform var(--transition-fast);
+        }
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+        }
+        .highlight-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+        .demo-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .demo-instructions {
+            background: linear-gradient(135deg, #ff6b6b20, #ee5a2420);
+            border: 2px solid #ff6b6b;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        .demo-instructions h3 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+        .instruction-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .step {
+            background: rgba(255, 107, 107, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b6b;
+        }
+        .step-number {
+            background: #ff6b6b;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-header">
+        <div class="container">
+            <h1 class="demo-title">⚡ Quick Buy Feature Demo</h1>
+            <p class="demo-subtitle">
+                Experience lightning-fast checkout with our revolutionary Quick Buy feature. 
+                Skip the cart, fill minimal details, and order in under 30 seconds!
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Feature Highlights -->
+        <div class="feature-highlights">
+            <div class="highlight-card">
+                <div class="highlight-icon">🚀</div>
+                <h3>Instant Purchase</h3>
+                <p>Skip the shopping cart entirely. Buy products with just a few clicks.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">📱</div>
+                <h3>Smart Forms</h3>
+                <p>Auto-filled forms for logged-in users. Minimal typing required.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">💳</div>
+                <h3>Multiple Payments</h3>
+                <p>Choose between Cash on Delivery or secure online payment.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">🧮</div>
+                <h3>Auto Calculations</h3>
+                <p>Real-time pricing with automatic shipping cost calculation.</p>
+            </div>
+        </div>
+
+        <!-- Demo Instructions -->
+        <div class="demo-instructions">
+            <h3>🎯 How to Test Quick Buy:</h3>
+            <div class="instruction-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Find the Button:</strong> Look for the orange "⚡ Quick Buy" button on any product card
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Click & Fill:</strong> Click the button and fill in your delivery details
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Choose Payment:</strong> Select Cash on Delivery or Online Payment
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Place Order:</strong> Click "Place Order Now" and get instant confirmation
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo Products -->
+        <h2 style="text-align: center; color: var(--primary-gold); margin-bottom: 2rem;">Try Quick Buy on These Products:</h2>
+        <div class="demo-products" id="demo-products-grid">
+            <!-- Products will be loaded here by JavaScript -->
+        </div>
+
+        <!-- Navigation -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="/" class="btn btn-secondary" style="margin-right: 1rem;">← Back to Home</a>
+            <a href="/pages/catalog.html" class="btn btn-primary">View Full Catalog →</a>
+        </div>
+    </div>
+
+    <!-- Include Quick Buy Modal -->
+    <div id="quick-buy-modal" class="auth-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚡ Quick Buy</h2>
+                <span class="close-modal" onclick="closeQuickBuyModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="quick-buy-content">
+                    <div class="product-summary">
+                        <div class="product-image-small">
+                            <img id="quick-buy-image" src="" alt="" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                        <div class="product-details-small">
+                            <h4 id="quick-buy-name">Product Name</h4>
+                            <p id="quick-buy-price" style="color: var(--primary-gold); font-size: 1.2rem; font-weight: bold;">₹0</p>
+                            <div class="quantity-selector">
+                                <label for="quick-buy-quantity">Quantity:</label>
+                                <div class="quantity-controls">
+                                    <button type="button" onclick="adjustQuantity(-1)">-</button>
+                                    <input type="number" id="quick-buy-quantity" value="1" min="1" max="10">
+                                    <button type="button" onclick="adjustQuantity(1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="quick-buy-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quick-buy-name-input">Full Name</label>
+                                <input type="text" id="quick-buy-name-input" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quick-buy-phone">Phone Number</label>
+                                <input type="tel" id="quick-buy-phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quick-buy-email">Email Address</label>
+                            <input type="email" id="quick-buy-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quick-buy-address">Delivery Address</label>
+                            <textarea id="quick-buy-address" name="address" rows="3" placeholder="Enter your complete delivery address" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quick-buy-city">City</label>
+                                <input type="text" id="quick-buy-city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quick-buy-pincode">PIN Code</label>
+                                <input type="text" id="quick-buy-pincode" name="pincode" pattern="[0-9]{6}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="order-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="quick-buy-subtotal">₹0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="quick-buy-shipping">₹199</span>
+                            </div>
+                            <div class="summary-row total-row">
+                                <span><strong>Total:</strong></span>
+                                <span id="quick-buy-total"><strong>₹0</strong></span>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-options">
+                            <h4>Payment Method</h4>
+                            <div class="payment-method">
+                                <input type="radio" id="payment-cod" name="paymentMethod" value="cod" checked>
+                                <label for="payment-cod">💰 Cash on Delivery</label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="payment-online" name="paymentMethod" value="online">
+                                <label for="payment-online">💳 Pay Online (Card/UPI)</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                            <i class="fas fa-bolt"></i> Place Order Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Processing your order...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/pdf_products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/quick-buy.js"></script>
+
+    <script>
+        // Load demo products
+        document.addEventListener('DOMContentLoaded', function() {
+            const demoProductsGrid = document.getElementById('demo-products-grid');
+            
+            // Use first 6 products for demo
+            const demoProducts = products.slice(0, 6);
+            
+            demoProductsGrid.innerHTML = demoProducts.map(product => {
+                const imagePath = product.images && product.images[0] ? 
+                    `images/${product.images[0]}` : 
+                    `images/product_${product.id}_1.png`;
+                
+                return `
+                    <div class="product-card" data-product-id="${product.id}">
+                        <div class="product-image">
+                            <img src="${imagePath}" alt="${product.name}" class="actual-product-image" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="image-placeholder" style="display: none;">
+                                <i class="fas fa-${getProductIcon(product.category)}"></i>
+                            </div>
+                            <div class="product-overlay">
+                                <button class="quick-view-btn" data-product-id="${product.id}">Quick View</button>
+                                <button class="add-to-cart-btn" data-product-id="${product.id}">Add to Cart</button>
+                                <button class="quick-buy-btn" data-product-id="${product.id}">⚡ Quick Buy</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-description">${product.description.substring(0, 100)}...</p>
+                            <div class="product-price">₹${product.price.toLocaleString()}</div>
+                            <div class="product-rating">
+                                <span class="stars">${'★'.repeat(product.rating)}${'☆'.repeat(5-product.rating)}</span>
+                                <span class="rating-count">(${product.reviews})</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Initialize product interactions
+            initializeProductInteractions();
+            
+            console.log('✅ Quick Buy Demo page loaded with', demoProducts.length, 'products');
+        });
+    </script>
+</body>
+</html>
