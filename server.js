@@ -46,7 +46,9 @@ app.use('/api/', limiter);
 app.use(compression());
 app.use(morgan('combined'));
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://vaibhavsainii.github.io', 'https://silver-statue.vercel.app', 'https://silver-statue-store.vercel.app']
+    : ['http://localhost:3000', 'http://localhost:5000', 'http://127.0.0.1:5000'],
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));

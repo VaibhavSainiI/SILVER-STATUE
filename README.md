@@ -74,6 +74,29 @@ A premium e-commerce platform for luxury silver statues featuring a complete ful
    - Frontend: http://localhost:5000
    - API: http://localhost:5000/api
 
+## 🌐 Live Demo
+
+### 🎯 Deployed Sites:
+- **Full-Stack (Vercel)**: https://silver-statue-store.vercel.app
+- **Frontend (GitHub Pages)**: https://vaibhavsainii.github.io/SILVER-STATUE/
+
+### 🔗 Quick Links:
+- **Repository**: https://github.com/VaibhavSainiI/SILVER-STATUE
+- **API Health Check**: https://silver-statue-store.vercel.app/api/health
+- **Product Catalog**: https://silver-statue-store.vercel.app/pages/catalog.html
+
+## 📦 Deployment
+
+### One-Click Deploy to Vercel:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/VaibhavSainiI/SILVER-STATUE)
+
+### Manual Deployment:
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions including:
+- Vercel deployment (full-stack)
+- GitHub Pages deployment (frontend)
+- Environment variable configuration
+- Database setup with MongoDB Atlas
+
 ## 📁 Project Structure
 
 ```
