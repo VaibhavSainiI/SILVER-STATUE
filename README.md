@@ -1,174 +1,233 @@
-# Silver Statue Emporium - E-commerce Website
+# 🏛️ Silver Statue - Luxury E-commerce Platform
 
-A luxurious e-commerce website for silver statue collectibles featuring a stunning black and gold theme with advanced animations and interactive effects.
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-4.18+-blue.svg)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-green.svg)](https://www.mongodb.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+A premium e-commerce platform for luxury silver statues featuring a complete full-stack architecture with modern web technologies.
 
 ## 🌟 Features
 
-### Design & Theme
-- **Black & Gold Luxury Theme**: Elegant color scheme with gradients and premium styling
-- **Custom Cursor Effects**: Interactive cursor with hover animations
-- **Smooth Animations**: CSS animations and transitions throughout the site
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+### Frontend
+- **Responsive Design**: Mobile-first approach with elegant UI/UX
+- **Custom Cursor**: Interactive golden cursor with hover effects
+- **Product Catalog**: Dynamic product display with filtering and search
+- **Shopping Cart**: Full cart functionality with quantity management
+- **Quick Buy**: Streamlined 30-second checkout process
+- **User Authentication**: Secure login/register system
+- **Modal System**: Enhanced modal interactions
+- **PDF Integration**: Products extracted from PDF catalog
 
-### Navigation & Layout
-- **Fixed Navigation Bar**: Sticky navigation with scroll effects
-- **Hero Section**: Animated hero with rotating product showcase
-- **Product Catalog**: Advanced filtering, sorting, and search functionality
-- **Shopping Cart**: Full cart management with local storage
+### Backend
+- **RESTful API**: Complete API endpoints for all operations
+- **Authentication**: JWT-based secure authentication
+- **Database**: MongoDB with Mongoose ODM
+- **Payment Processing**: Stripe integration for secure payments
+- **Admin Dashboard**: Order and product management
+- **Error Handling**: Comprehensive error management
+- **Security**: CORS, helmet, and rate limiting
 
-### E-commerce Functionality
-- **Product Grid**: Dynamic product display with grid/list views
-- **Product Filtering**: Filter by category, price range, and search terms
-- **Product Sorting**: Sort by name, price, rating, and date
-- **Quick View**: Modal popup for quick product preview
-- **Shopping Cart**: Add/remove items, quantity management
-- **Responsive Design**: Mobile-friendly interface
+## 🚀 Quick Start
 
-### Advanced Features
-- **Custom Cursor**: Animated cursor with hover effects
-- **Scroll Animations**: Elements animate into view on scroll
-- **Product Comparison**: Compare up to 3 products
-- **Local Storage**: Cart persistence across sessions
-- **Form Validation**: Contact form with validation
-- **Loading States**: Animated loading indicators
+### Prerequisites
+- Node.js 18+ 
+- MongoDB (local or Atlas)
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/VaibhavSainiI/SILVER-STATUE.git
+   cd SILVER-STATUE
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+   Create a `.env` file in the root directory:
+   ```env
+   PORT=5000
+   MONGODB_URI=mongodb://localhost:27017/silver-statue-store
+   JWT_SECRET=your_jwt_secret_here
+   STRIPE_SECRET_KEY=your_stripe_secret_key
+   STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+   ```
+
+4. **Seed the database**
+   ```bash
+   npm run seed
+   ```
+
+5. **Start the server**
+   ```bash
+   npm start
+   # or for development
+   npm run dev
+   ```
+
+6. **Access the application**
+   - Frontend: http://localhost:5000
+   - API: http://localhost:5000/api
 
 ## 📁 Project Structure
 
 ```
 silver-statue-store/
-├── index.html              # Main homepage
-├── css/
-│   ├── styles.css          # Main stylesheet with theme and animations
-│   └── catalog.css         # Catalog-specific styles
-├── js/
-│   ├── main.js            # Core JavaScript functionality
-│   └── catalog.js         # Catalog page functionality
-├── pages/
-│   └── catalog.html       # Product catalog page
-└── images/                # Image assets (placeholder folder)
+├── 📂 css/                    # Stylesheets
+│   ├── styles.css            # Main styles
+│   └── catalog.css           # Catalog specific styles
+├── 📂 js/                     # Frontend JavaScript
+│   ├── main.js               # Core functionality
+│   ├── catalog.js            # Catalog features
+│   ├── auth.js               # Authentication
+│   ├── api.js                # API communication
+│   └── quick-buy.js          # Quick buy feature
+├── 📂 images/                 # Product images (300+)
+├── 📂 pages/                  # HTML pages
+├── 📂 models/                 # Database models
+│   ├── User.js               # User model
+│   ├── Product.js            # Product model
+│   ├── Order.js              # Order model
+│   └── Cart.js               # Cart model
+├── 📂 routes/                 # API routes
+│   ├── auth.js               # Authentication routes
+│   ├── products.js           # Product routes
+│   ├── orders.js             # Order routes
+│   ├── cart.js               # Cart routes
+│   └── admin.js              # Admin routes
+├── 📂 middleware/             # Custom middleware
+├── 📂 scripts/                # Utility scripts
+├── server.js                 # Main server file
+└── package.json              # Dependencies
 ```
 
-## 🚀 Getting Started
+## 🔧 API Endpoints
 
-1. **Open the Website**:
-   - Navigate to the project directory
-   - Open `index.html` in a modern web browser
-   - Or serve using a local web server for best performance
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/profile` - Get user profile
 
-2. **Browse Products**:
-   - Click "Explore Collection" to view all products
-   - Use filters to narrow down products by category or price
-   - Search for specific items using the search bar
+### Products
+- `GET /api/products` - Get all products
+- `GET /api/products/:id` - Get product by ID
+- `GET /api/products/category/:category` - Get products by category
 
-3. **Shopping Experience**:
-   - Click "Add to Cart" on any product
-   - View cart by clicking the cart icon in navigation
-   - Manage quantities and remove items as needed
+### Cart & Orders
+- `GET /api/cart` - Get user cart
+- `POST /api/cart/add` - Add item to cart
+- `POST /api/orders` - Create new order
+- `POST /api/orders/quick-buy` - Quick buy order
 
-## 🎨 Design Features
+### Admin
+- `GET /api/admin/orders` - Get all orders
+- `PUT /api/admin/orders/:id` - Update order status
 
-### Color Palette
-- **Primary Black**: `#0a0a0a`
-- **Secondary Black**: `#1a1a1a`
-- **Accent Black**: `#2a2a2a`
-- **Primary Gold**: `#d4af37`
-- **Secondary Gold**: `#f4d03f`
-- **Light Gold**: `#f7dc6f`
+## 🎨 Features in Detail
 
-### Typography
-- **Headings**: Playfair Display (serif)
-- **Body Text**: Inter (sans-serif)
+### Custom Cursor System
+- Interactive golden cursor with smooth animations
+- Hover effects on interactive elements
+- Fallback system for touch devices
+- Z-index management for modals
 
-### Animations
-- **Cursor Effects**: Custom animated cursor with hover states
-- **Scroll Animations**: Fade-in and slide-up effects
-- **Button Animations**: Hover effects with transforms and shadows
-- **Loading Animations**: Smooth loading indicators
+### Quick Buy Feature
+- 30-second streamlined checkout
+- Guest and authenticated user support
+- Real-time stock validation
+- Integrated payment processing
 
-## 📱 Responsive Breakpoints
+### Product Management
+- PDF catalog integration with 300+ products
+- Dynamic image galleries
+- Category-based filtering
+- Search functionality
 
-- **Desktop**: 1200px and above
-- **Laptop**: 968px to 1199px
-- **Tablet**: 768px to 967px
-- **Mobile**: Below 768px
+### Security Features
+- JWT token authentication
+- Password hashing with bcrypt
+- CORS configuration
+- Rate limiting
+- Input validation
 
-## 🛍️ Product Categories
+## 🔧 Configuration
 
-The website features four main product categories:
+### MongoDB Setup
+- **Local MongoDB**: Install and run MongoDB locally
+- **MongoDB Atlas**: Use cloud MongoDB service
+- Update `MONGODB_URI` in `.env` file
 
-1. **Religious Statues**: Sacred figures and divine representations
-2. **Royal Collection**: Majestic pieces fit for royalty
-3. **Animal Figurines**: Beautiful wildlife and domestic animals
-4. **Nature & Floral**: Botanical and natural themes
+### Stripe Payment Setup
+1. Create a Stripe account
+2. Get API keys from Stripe dashboard
+3. Add keys to `.env` file
+4. Test with Stripe test cards
 
-## 🔧 Technical Details
+## 🎯 Demo Credentials
 
-### HTML5 Features
-- Semantic markup for accessibility
-- Meta tags for responsive design
-- Font Awesome icons for visual elements
+For testing purposes:
+- **Email**: demo@silverstatue.com
+- **Password**: demo123
 
-### CSS3 Features
-- CSS Grid and Flexbox for layouts
-- CSS Variables for consistent theming
-- Advanced animations and transitions
-- Media queries for responsive design
+## 📱 Browser Support
 
-### JavaScript Features
-- ES6+ modern JavaScript
-- Local Storage for cart persistence
-- Event delegation for dynamic content
-- Intersection Observer for scroll animations
-- Debounced search functionality
+- Chrome 80+
+- Firefox 75+
+- Safari 13+
+- Edge 80+
 
-## 🎯 Browser Support
+## 🤝 Contributing
 
-- Chrome 60+
-- Firefox 60+
-- Safari 12+
-- Edge 79+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 🚀 Performance Optimizations
+## 📋 Scripts
 
-- **Lazy Loading**: Images load as needed
-- **Debounced Search**: Optimized search performance
-- **Local Storage**: Reduces server requests
-- **CSS Animations**: Hardware-accelerated animations
-- **Responsive Images**: Optimized for different screen sizes
+- `npm start` - Start production server
+- `npm run dev` - Start development server
+- `npm run seed` - Seed database with sample data
+- `npm test` - Run tests (if available)
 
-## 📞 Contact Information
+## 🐛 Troubleshooting
 
-**Silver Statue Emporium**
-- Address: 123 Silver Street, Artisan Quarter, Mumbai, Maharashtra 400001
-- Phone: +91 98765 43210
-- Email: info@silverstatueemporium.com
+### Common Issues
 
-## 🎨 Customization
+1. **MongoDB Connection Error**
+   - Ensure MongoDB is running
+   - Check connection string in `.env`
 
-To customize the theme colors, modify the CSS variables in `css/styles.css`:
+2. **Port Already in Use**
+   - Change PORT in `.env` file
+   - Kill existing Node processes
 
-```css
-:root {
-    --primary-black: #0a0a0a;
-    --primary-gold: #d4af37;
-    /* Add your custom colors */
-}
-```
-
-## 📈 Future Enhancements
-
-- User authentication and accounts
-- Product reviews and ratings
-- Payment gateway integration
-- Advanced product filtering
-- Wishlist functionality
-- Product recommendations
-- Multi-language support
+3. **Cursor Not Visible**
+   - Check browser console for errors
+   - Ensure JavaScript is enabled
 
 ## 📄 License
 
-This project is created as a demonstration e-commerce website. All product information is for demo purposes only.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Vaibhav Saini**
+- GitHub: [@VaibhavSainiI](https://github.com/VaibhavSainiI)
+
+## 🙏 Acknowledgments
+
+- Express.js team for the excellent framework
+- MongoDB team for the database solution
+- Stripe for payment processing
+- All contributors and testers
 
 ---
 
-**Enjoy exploring the Silver Statue Emporium!** ✨
+⭐ **If you found this project helpful, please give it a star!** ⭐
