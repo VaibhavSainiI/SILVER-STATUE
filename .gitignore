@@ -11,6 +11,9 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# Vercel
+.vercel
+
 # Logs
 logs
 *.log
@@ -91,3 +94,4 @@ temp/
 
 # MongoDB data
 data/
+.vercel

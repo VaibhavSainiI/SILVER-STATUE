@@ -1,17 +1,9 @@
 {
   "version": 2,
-  "name": "silver-statue-store",
   "builds": [
     {
       "src": "server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "public"
-      }
     }
   ],
   "routes": [
@@ -20,20 +12,16 @@
       "dest": "/server.js"
     },
     {
-      "src": "/css/(.*)",
-      "dest": "/css/$1"
+      "src": "/uploads/(.*)",
+      "dest": "/uploads/$1"
     },
     {
-      "src": "/js/(.*)",
-      "dest": "/js/$1"
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|ico|svg))",
+      "dest": "/$1"
     },
     {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
-    },
-    {
-      "src": "/pages/(.*)",
-      "dest": "/pages/$1"
+      "src": "/",
+      "dest": "/index.html"
     },
     {
       "src": "/(.*)",
@@ -45,7 +33,7 @@
   },
   "functions": {
     "server.js": {
-      "maxDuration": 10
+      "maxDuration": 30
     }
   }
 }

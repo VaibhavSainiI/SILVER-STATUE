@@ -1,0 +1,37 @@
+# Vercel ignore file
+# Files and directories to ignore during deployment
+
+# Development files
+.env.example
+*.md
+README.md
+DEPLOYMENT.md
+BACKEND_README.md
+PDF_Integration_Summary.md
+
+# Test files
+*test*
+diagnostic.html
+cursor-test.html
+quick-buy-test.html
+quick-buy-demo.html
+image-gallery.html
+
+# Scripts and tools
+create_products.py
+extract_pdf.py
+*.bat
+*.sh
+deploy.*
+
+# Local development
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
